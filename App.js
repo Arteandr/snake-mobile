@@ -10,6 +10,7 @@ import {
 import AllAccountsComponent from "./app/components/AllAccountsComponent";
 import colors from "./app/config/colors";
 import NavbarComponent from "./app/components/NavbarComponent";
+import CashComponent from "./app/components/CashComponent";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
@@ -36,7 +37,7 @@ export default function App() {
           <Tab.Screen name="Home"
             options={{ title: 'Daily' }}
             component={DetailsScreen} />
-          <Tab.Screen name="Weekly" component={DetailsScreen} />
+          <Tab.Screen name="Weekly" component={CashComponent} />
           <Tab.Screen name="Monthly" component={AllAccountsComponent} />
           <Tab.Screen name="Yearly" component={DetailsScreen} />
         </Tab.Navigator>
