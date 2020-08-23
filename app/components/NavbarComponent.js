@@ -5,7 +5,10 @@ import SettingsIcon from "../assets/ico/SettingsIcon";
 import SearchIcon from "../assets/ico/SearchIcon";
 import PlusIcon from "../assets/ico/PlusIcon";
 
-export default function NavbarComponent() {
+
+
+export default function NavbarComponent({ state, descriptors, navigation, position }) {
+
   return (
     <View style={styles.container}>
       <View style={styles.navigation}>
@@ -23,33 +26,45 @@ export default function NavbarComponent() {
         </View>
       </View>
       <View style={styles.pages__center}>
-        <View style={styles.pages__button}>
-          <TouchableNativeFeedback>
-            <Text style={styles.pages__button__text}>daily</Text>
-          </TouchableNativeFeedback>
-        </View>
-        <View style={styles.pages__button}>
-          <TouchableNativeFeedback>
-            <Text style={styles.pages__button__text}>weekly</Text>
-          </TouchableNativeFeedback>
-        </View>
-        <View style={[styles.pages__button, styles.pages__button__active]}>
-          <TouchableNativeFeedback>
-            <Text
-              style={[
-                styles.pages__button__text,
-                styles.pages__button__text__active,
-              ]}
-            >
-              monthly
-            </Text>
-          </TouchableNativeFeedback>
-        </View>
-        <View style={styles.pages__button}>
-          <TouchableNativeFeedback>
-            <Text style={styles.pages__button__text}>yearly</Text>
-          </TouchableNativeFeedback>
-        </View>
+        {state.routes.map((route, index) => {
+          const { options } = descriptors[route.key];
+          const label = options.tabBarLabel !== undefined
+            ? options.tabBarLabel
+            : options.title !== undefined
+              ? options.title
+              : route.name;
+
+          const isFocused = state.index === index;
+
+          const onPress = () => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            })
+
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name);
+            }
+          }
+
+          return (
+            <View
+              key={index}
+              style={[styles.pages__button, isFocused ? styles.pages__button__active : styles.pages__button]}>
+              <TouchableNativeFeedback
+                accessibilityRole="button"
+                accessibilityStates={isFocused ? ['selected'] : []}
+                accessibilityLabel={options.tabBarAccessibilityLabel}
+                testID={options.tabBarTestID}
+                onPress={onPress}
+              >
+                <Text style={styles.pages__button__text}>{label}</Text>
+              </TouchableNativeFeedback>
+            </View>
+          );
+
+        })}
       </View>
       <View style={styles.borderBottom}></View>
     </View>
@@ -85,15 +100,15 @@ const styles = StyleSheet.create({
     left: 15,
   },
   // переключение страниц в нафигации
-  test: {
-    borderBottomWidth: 1,
-  },
   pages__center: {
     flexDirection: "row",
-    justifyContent: "space-around",
     paddingTop: 12,
   },
+  pages__button: {
+    width: "25%"
+  },
   pages__button__text: {
+    textAlign: "center",
     color: colors.white,
     textTransform: "uppercase",
     opacity: 0.7,
