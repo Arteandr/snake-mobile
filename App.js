@@ -9,6 +9,7 @@ import {
 import AllAccountsComponent from "./app/components/AllAccountsComponent";
 import colors from "./app/config/colors";
 import NavbarComponent from "./app/components/NavbarComponent";
+import CashComponent from "./app/components/CashComponent";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <NavbarComponent />
       </SafeAreaView>
-      <AllAccountsComponent />
+      <CashComponent />
     </View>
   );
 }

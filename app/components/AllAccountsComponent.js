@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableWithoutFeedback,
+} from "react-native";
 
 import colors from "../config/colors";
 
@@ -18,59 +24,75 @@ export default function AllAccountsComponent() {
         </View>
       </View>
       <ScrollView style={styles.cards}>
-        <View style={styles.cards__card}>
-          <Text style={styles.cards__card__name}>Cash</Text>
-          <Text style={styles.cards__card__balance}>$23 092.20</Text>
-        </View>
-        <View style={styles.cards__card}>
-          <Text style={styles.cards__card__name}>Cash</Text>
-          <Text style={styles.cards__card__balance}>$23 092.20</Text>
-        </View>
-        <View style={styles.cards__card}>
-          <Text style={styles.cards__card__name}>Cash</Text>
-          <Text style={styles.cards__card__balance}>$23 092.20</Text>
-        </View>
-        <View style={styles.cards__card}>
-          <Text style={styles.cards__card__name}>Credit card</Text>
-          <Text
-            style={[
-              styles.cards__card__balance,
-              styles.cards__card__balance__minus,
-            ]}
-          >
-            -$532
-          </Text>
-        </View>
-        <View style={styles.cards__card}>
-          <Text style={styles.cards__card__name}>Wife’s credit card</Text>
-          <Text style={styles.cards__card__balance}>$2 139</Text>
-        </View>
-        <View style={styles.cards__card}>
-          <Text style={styles.cards__card__name}>Bank deposit</Text>
-          <Text style={styles.cards__card__balance}>$200 000</Text>
-        </View>
-        <View style={styles.cards__card}>
-          <Text style={styles.cards__card__name}>Car loan</Text>
-          <Text
-            style={[
-              styles.cards__card__balance,
-              styles.cards__card__balance__minus,
-            ]}
-          >
-            -$67 231
-          </Text>
-        </View>
-        <View style={styles.cards__card}>
-          <Text style={styles.cards__card__name}>Home loan</Text>
-          <Text
-            style={[
-              styles.cards__card__balance,
-              styles.cards__card__balance__minus,
-            ]}
-          >
-            -$329 027
-          </Text>
-        </View>
+        <TouchableWithoutFeedback>
+          <View style={styles.cards__card}>
+            <Text style={styles.cards__card__name}>Cash</Text>
+            <Text style={styles.cards__card__balance}>$23 092.20</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback>
+          <View style={styles.cards__card}>
+            <Text style={styles.cards__card__name}>Cash</Text>
+            <Text style={styles.cards__card__balance}>$23 092.20</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback>
+          <View style={styles.cards__card}>
+            <Text style={styles.cards__card__name}>Cash</Text>
+            <Text style={styles.cards__card__balance}>$23 092.20</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback>
+          <View style={styles.cards__card}>
+            <Text style={styles.cards__card__name}>Credit card</Text>
+            <Text
+              style={[
+                styles.cards__card__balance,
+                styles.cards__card__balance__minus,
+              ]}
+            >
+              -$532
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback>
+          <View style={styles.cards__card}>
+            <Text style={styles.cards__card__name}>Wife’s credit card</Text>
+            <Text style={styles.cards__card__balance}>$2 139</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback>
+          <View style={styles.cards__card}>
+            <Text style={styles.cards__card__name}>Bank deposit</Text>
+            <Text style={styles.cards__card__balance}>$200 000</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback>
+          <View style={styles.cards__card}>
+            <Text style={styles.cards__card__name}>Car loan</Text>
+            <Text
+              style={[
+                styles.cards__card__balance,
+                styles.cards__card__balance__minus,
+              ]}
+            >
+              -$67 231
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback>
+          <View style={styles.cards__card}>
+            <Text style={styles.cards__card__name}>Home loan</Text>
+            <Text
+              style={[
+                styles.cards__card__balance,
+                styles.cards__card__balance__minus,
+              ]}
+            >
+              -$329 027
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
       </ScrollView>
     </View>
   );
