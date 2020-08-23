@@ -16,29 +16,50 @@ export default function AllAccountsComponent() {
         </View>
       </View>
       <View style={styles.cards}>
-        <View style={styles.cards__item}>
-          <Text style={styles.cards__item__text}>Cash</Text>
-          <Text style={styles.cards__item__count}>$23 092.20</Text>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Cash</Text>
+          <Text style={styles.cards__card__balance}>$23 092.20</Text>
         </View>
-        <View style={styles.cards__item}>
-          <Text style={styles.cards__item__text}>Credit card</Text>
-          <Text style={styles.cards__item__count}>-$532</Text>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Credit card</Text>
+          <Text
+            style={[
+              styles.cards__card__balance,
+              styles.cards__card__balance__minus,
+            ]}
+          >
+            -$532
+          </Text>
         </View>
-        <View style={styles.cards__item}>
-          <Text style={styles.cards__item__text}>Wife’s credit card</Text>
-          <Text style={styles.cards__item__count}>$2 139</Text>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Wife’s credit card</Text>
+          <Text style={styles.cards__card__balance}>$2 139</Text>
         </View>
-        <View style={styles.cards__item}>
-          <Text style={styles.cards__item__text}>Bank deposit</Text>
-          <Text style={styles.cards__item__count}>$200 000</Text>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Bank deposit</Text>
+          <Text style={styles.cards__card__balance}>$200 000</Text>
         </View>
-        <View style={styles.cards__item}>
-          <Text style={styles.cards__item__text}>Car loan</Text>
-          <Text style={styles.cards__item__count}>-$67 231</Text>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Car loan</Text>
+          <Text
+            style={[
+              styles.cards__card__balance,
+              styles.cards__card__balance__minus,
+            ]}
+          >
+            -$67 231
+          </Text>
         </View>
-        <View style={styles.cards__item}>
-          <Text style={styles.cards__item__text}>Home loan</Text>
-          <Text style={styles.cards__item__count}>-$329 027</Text>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Home loan</Text>
+          <Text
+            style={[
+              styles.cards__card__balance,
+              styles.cards__card__balance__minus,
+            ]}
+          >
+            -$329 027
+          </Text>
         </View>
       </View>
     </View>
@@ -87,33 +108,30 @@ const styles = StyleSheet.create({
     marginRight: 8,
     opacity: 1,
   },
-
-  // Блок карточек
+  // карточки
   cards: {
-    width: "100 %",
     paddingLeft: 16,
-    paddingRight: 16
+    paddingRight: 16,
   },
-  cards__item: {
+  cards__card: {
+    height: 80,
     width: "100%",
-    height: 82,
     backgroundColor: colors.white,
     borderRadius: 8,
-    marginBottom: 10,
-    paddingTop: 12,
-    paddingLeft: 12
+    justifyContent: "center",
+    paddingLeft: 12,
+    marginBottom: 8,
   },
-  cards__item__text: {
+  cards__card__name: {
     color: colors.darkgray,
     opacity: 0.6,
     fontSize: 16,
-    fontWeight: "500",
-    marginBottom: 4,
   },
-  cards__item__count: {
+  cards__card__balance: {
     color: colors.secondary,
     fontSize: 28,
-    lineHeight: 33,
-    fontWeight: "600"
-  }
+  },
+  cards__card__balance__minus: {
+    color: colors.primary,
+  },
 });
