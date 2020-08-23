@@ -15,7 +15,53 @@ export default function AllAccountsComponent() {
           <View style={styles.stats__button} />
         </View>
       </View>
-      <View style={styles.cards}></View>
+      <View style={styles.cards}>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Cash</Text>
+          <Text style={styles.cards__card__balance}>$23 092.20</Text>
+        </View>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Credit card</Text>
+          <Text
+            style={[
+              styles.cards__card__balance,
+              styles.cards__card__balance__minus,
+            ]}
+          >
+            -$532
+          </Text>
+        </View>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Wife’s credit card</Text>
+          <Text style={styles.cards__card__balance}>$2 139</Text>
+        </View>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Bank deposit</Text>
+          <Text style={styles.cards__card__balance}>$200 000</Text>
+        </View>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Car loan</Text>
+          <Text
+            style={[
+              styles.cards__card__balance,
+              styles.cards__card__balance__minus,
+            ]}
+          >
+            -$67 231
+          </Text>
+        </View>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Home loan</Text>
+          <Text
+            style={[
+              styles.cards__card__balance,
+              styles.cards__card__balance__minus,
+            ]}
+          >
+            -$329 027
+          </Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -61,5 +107,31 @@ const styles = StyleSheet.create({
   stats__button__left: {
     marginRight: 8,
     opacity: 1,
+  },
+  // карточки
+  cards: {
+    paddingLeft: 16,
+    paddingRight: 16,
+  },
+  cards__card: {
+    height: 80,
+    width: "100%",
+    backgroundColor: colors.white,
+    borderRadius: 8,
+    justifyContent: "center",
+    paddingLeft: 12,
+    marginBottom: 8,
+  },
+  cards__card__name: {
+    color: colors.darkgray,
+    opacity: 0.6,
+    fontSize: 16,
+  },
+  cards__card__balance: {
+    color: colors.secondary,
+    fontSize: 28,
+  },
+  cards__card__balance__minus: {
+    color: colors.primary,
   },
 });
