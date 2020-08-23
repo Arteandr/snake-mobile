@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 
 import colors from "../config/colors";
 
 export default function AllAccountsComponent() {
-  useEffect(() => {
-
-  }, [])
+  useEffect(() => {}, []);
 
   return (
     <View style={styles.container}>
@@ -19,7 +17,15 @@ export default function AllAccountsComponent() {
           <View style={styles.stats__button} />
         </View>
       </View>
-      <View style={styles.cards}>
+      <ScrollView style={styles.cards}>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Cash</Text>
+          <Text style={styles.cards__card__balance}>$23 092.20</Text>
+        </View>
+        <View style={styles.cards__card}>
+          <Text style={styles.cards__card__name}>Cash</Text>
+          <Text style={styles.cards__card__balance}>$23 092.20</Text>
+        </View>
         <View style={styles.cards__card}>
           <Text style={styles.cards__card__name}>Cash</Text>
           <Text style={styles.cards__card__balance}>$23 092.20</Text>
@@ -65,7 +71,7 @@ export default function AllAccountsComponent() {
             -$329 027
           </Text>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -74,13 +80,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.primary,
+    paddingTop: 30,
   },
   // Блок статистики(баланса)
   stats: {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: "25%",
+    paddingBottom: 50,
   },
   stats__balance: {
     textTransform: "uppercase",

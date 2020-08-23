@@ -4,24 +4,31 @@ import {
   Platform,
   StatusBar,
   SafeAreaView,
+  View,
 } from "react-native";
 import AllAccountsComponent from "./app/components/AllAccountsComponent";
 import colors from "./app/config/colors";
+import NavbarComponent from "./app/components/NavbarComponent";
 
 export default function App() {
   return (
-    <SafeAreaView
-      style={styles.container}>
+    <View style={styles.app}>
+      <SafeAreaView style={styles.container}>
+        <NavbarComponent />
+      </SafeAreaView>
       <AllAccountsComponent />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  app: {
     flex: 1,
+    backgroundColor: colors.primary,
+  },
+  container: {
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+
     // TODO: доделать с исппользованием редакса
-    backgroundColor: colors.primary
   },
 });
