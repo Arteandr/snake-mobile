@@ -1,9 +1,13 @@
-import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, StyleSheet, } from "react-native";
 
 import colors from "../config/colors";
 
 export default function AllAccountsComponent() {
+  useEffect(() => {
+
+  }, [])
+
   return (
     <View style={styles.container}>
       <View style={styles.stats}>
